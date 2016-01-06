@@ -70,11 +70,16 @@ class InterfaceController: WKInterfaceController, HapticPlayable, TimerConfigura
 
 }
 
-extension WKInterfaceTimer {
+extension WKInterfaceTimer: HapticPlayable {
     func configure(withTimeInterval time: NSTimeInterval) {
         let futureDate = NSDate(timeIntervalSinceNow: time)
         self.setDate(futureDate)
 
+    }
+    
+    func reset() {
+        self.stop()
+        playHaptic(.Stop)
     }
 }
 protocol TimerConfigurable {
