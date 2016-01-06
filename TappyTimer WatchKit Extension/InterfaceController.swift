@@ -34,6 +34,11 @@ class InterfaceController: WKInterfaceController, HapticPlayable, TimerConfigura
         
     }
     
+    @IBAction func stopButtonPressed() {
+        //Pause timer
+    }
+    
+    
     func timerDone(sender: NSTimer) {
         timer?.stop()
         resetTimer(sender)

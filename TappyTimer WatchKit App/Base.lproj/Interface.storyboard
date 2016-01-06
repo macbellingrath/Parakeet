@@ -19,6 +19,9 @@
                         </button>
                         <button width="1" alignment="left" title="Stop" id="MeE-l0-BsX">
                             <color key="titleColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="stopButtonPressed" destination="AgC-eL-Hgc" id="W28-aR-ftn"/>
+                            </connections>
                         </button>
                         <button width="1" alignment="left" title="Reset" id="4Dk-2w-9O2">
                             <color key="titleColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -27,13 +30,18 @@
                             </connections>
                         </button>
                     </items>
+                    <menu key="menu" id="G9R-PS-1iG">
+                        <items>
+                            <menuItem title="Timers" icon="more" id="cxq-C6-Ran"/>
+                        </items>
+                    </menu>
                     <connections>
                         <outlet property="startButton" destination="zod-qR-fBH" id="kIr-pO-cSQ"/>
                         <outlet property="timer" destination="xrZ-AJ-miW" id="deQ-P6-Utg"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="164" y="219"/>
+            <point key="canvasLocation" x="374" y="238"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="rjY-Ar-IMT">
