@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E6C1268C1C3ECA790043F400 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C1268B1C3ECA790043F400 /* Time.swift */; };
+		E6C465C81C3EB37200A78A5F /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C465C71C3EB37200A78A5F /* Timer.swift */; };
 		E6E8598F1C3D516400DF5271 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E8598E1C3D516400DF5271 /* AppDelegate.swift */; };
 		E6E859911C3D516400DF5271 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E859901C3D516400DF5271 /* ViewController.swift */; };
 		E6E859941C3D516400DF5271 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E859921C3D516400DF5271 /* Main.storyboard */; };
@@ -73,6 +75,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E6C1268B1C3ECA790043F400 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		E6C465C71C3EB37200A78A5F /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		E6E8598B1C3D516400DF5271 /* TappyTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TappyTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E8598E1C3D516400DF5271 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6E859901C3D516400DF5271 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				E6E859BC1C3D516500DF5271 /* InterfaceController.swift */,
+				E6C1268B1C3ECA790043F400 /* Time.swift */,
+				E6C465C71C3EB37200A78A5F /* Timer.swift */,
 				E6E859BE1C3D516500DF5271 /* ExtensionDelegate.swift */,
 				E6E859C01C3D516500DF5271 /* GlanceController.swift */,
 				E6E859C21C3D516500DF5271 /* Assets.xcassets */,
@@ -369,7 +375,9 @@
 			files = (
 				E6E859BF1C3D516500DF5271 /* ExtensionDelegate.swift in Sources */,
 				E6E859BD1C3D516500DF5271 /* InterfaceController.swift in Sources */,
+				E6C1268C1C3ECA790043F400 /* Time.swift in Sources */,
 				E6E859C11C3D516500DF5271 /* GlanceController.swift in Sources */,
+				E6C465C81C3EB37200A78A5F /* Timer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,6 +635,7 @@
 				E6E859C91C3D516500DF5271 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E6E859CB1C3D516500DF5271 /* Build configuration list for PBXNativeTarget "TappyTimer WatchKit App" */ = {
 			isa = XCConfigurationList;
@@ -635,6 +644,7 @@
 				E6E859CD1C3D516500DF5271 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E6E859CF1C3D516500DF5271 /* Build configuration list for PBXNativeTarget "TappyTimer" */ = {
 			isa = XCConfigurationList;
@@ -643,6 +653,7 @@
 				E6E859D11C3D516500DF5271 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E6E859D21C3D516500DF5271 /* Build configuration list for PBXNativeTarget "TappyTimerTests" */ = {
 			isa = XCConfigurationList;
@@ -651,6 +662,7 @@
 				E6E859D41C3D516500DF5271 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

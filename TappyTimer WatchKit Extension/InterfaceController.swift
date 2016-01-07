@@ -10,11 +10,19 @@ import WatchKit
 import Foundation
 
 
+struct Time {
+    //Rest
+    var restTime: NSTimeInterval
+    //Work
+    var intervalLength: NSTimeInterval
+    //Intervals
+    var numberOfIntervals: Int
+}
 
-
-class InterfaceController: WKInterfaceController, HapticPlayable, TimerConfigurable {
+class InterfaceController: WKInterfaceController, HapticPlayable {
 
     var targetTimer: NSTimer?
+    var timerManager: AIRTimer?
     var duration: NSTimeInterval = 20
     
     var timerRunning = false {
@@ -31,15 +39,16 @@ class InterfaceController: WKInterfaceController, HapticPlayable, TimerConfigura
         }
     }
     
-    @IBOutlet var timer: WKInterfaceTimer!
+    @IBOutlet var watchTimer: WKInterfaceTimer!
     @IBOutlet weak var startButton: WKInterfaceButton!
     @IBAction func startButtonPressed() {
         
         if !timerRunning {
         
-        timer?.configure(withTimeInterval: duration)
+        watchTimer?.configure(withTimeInterval: duration)
        
-        timer.start()
+        watchTimer.start()
+        timerManager = AIRTimer.after(<#T##interval: NSTimeInterval##NSTimeInterval#>, handler: <#T##TimerHandler##TimerHandler##(AIRTimer) -> Void#>)
         
         startTargetTimer()
         
@@ -47,9 +56,12 @@ class InterfaceController: WKInterfaceController, HapticPlayable, TimerConfigura
         
         } else if timerRunning {
             
-            timer.stop()
+            duration = targetTimer?.timeInterval ?? duration
             
+            watchTimer.stop()
             
+            targetTimer?.invalidate()
+ 
         }
         
         timerRunning = !timerRunning
@@ -57,21 +69,23 @@ class InterfaceController: WKInterfaceController, HapticPlayable, TimerConfigura
     }
     
     func timerDone(sender: NSTimer) {
-        timer?.stop()
-        resetTimer(sender)
+        watchTimer?.stop()
+        playHaptic(.DirectionDown)
+        sender.invalidate()
+        
         timerRunning = false
         
-    }
-    @IBAction func resetButtonPressed() {
-       timer.reset()
-       timerRunning = false
     }
     
     func startTargetTimer() {
         targetTimer = NSTimer.scheduledTimerWithTimeInterval(duration, target: self, selector: Selector("timerDone:"), userInfo: nil, repeats: false)
     }
     
+    override func didAppear() {
+        super.didAppear()
+    
 
+    }
 }
 
 extension WKInterfaceTimer: HapticPlayable {
@@ -88,23 +102,6 @@ extension WKInterfaceTimer: HapticPlayable {
         self.setDate(NSDate())
         playHaptic(.Stop)
     }
-}
-
-
-protocol TimerConfigurable {
-    
-    func resetTimer(timer: NSTimer?)
-}
-
-extension TimerConfigurable {
-    
-   
-    func resetTimer(var timer: NSTimer?) {
-        timer?.invalidate()
-        timer = nil
-        
-    }
-    
 }
 
 protocol HapticPlayable {
