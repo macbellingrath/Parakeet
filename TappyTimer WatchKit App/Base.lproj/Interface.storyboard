@@ -17,18 +17,6 @@
                                 <action selector="startButtonPressed" destination="AgC-eL-Hgc" id="wyU-nk-yuX"/>
                             </connections>
                         </button>
-                        <button width="1" alignment="left" title="Stop" id="MeE-l0-BsX">
-                            <color key="titleColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="stopButtonPressed" destination="AgC-eL-Hgc" id="W28-aR-ftn"/>
-                            </connections>
-                        </button>
-                        <button width="1" alignment="left" title="Reset" id="4Dk-2w-9O2">
-                            <color key="titleColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="resetButtonPressed" destination="AgC-eL-Hgc" id="p5o-CT-D4z"/>
-                            </connections>
-                        </button>
                     </items>
                     <menu key="menu" id="G9R-PS-1iG">
                         <items>
