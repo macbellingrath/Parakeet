@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C7278E40F0350C560FE1B100 /* Pods_TappyTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1164D49ED64CE4B9B3F8E7FF /* Pods_TappyTimer.framework */; };
-		E6C1268C1C3ECA790043F400 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C1268B1C3ECA790043F400 /* Time.swift */; };
+		E63796201C40170100338DA0 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = E637961F1C40170100338DA0 /* Session.swift */; };
+		E63796211C40174000338DA0 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = E637961F1C40170100338DA0 /* Session.swift */; };
 		E6C465C81C3EB37200A78A5F /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C465C71C3EB37200A78A5F /* Timer.swift */; };
 		E6E8598F1C3D516400DF5271 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E8598E1C3D516400DF5271 /* AppDelegate.swift */; };
 		E6E859911C3D516400DF5271 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E859901C3D516400DF5271 /* ViewController.swift */; };
@@ -79,6 +80,8 @@
 		1164D49ED64CE4B9B3F8E7FF /* Pods_TappyTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TappyTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		714DD45A4AF3A010B1ABD4A6 /* Pods-TappyTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TappyTimer.release.xcconfig"; path = "Pods/Target Support Files/Pods-TappyTimer/Pods-TappyTimer.release.xcconfig"; sourceTree = "<group>"; };
 		A893ADA8E18EFA0ABF13585B /* Pods-TappyTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TappyTimer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TappyTimer/Pods-TappyTimer.debug.xcconfig"; sourceTree = "<group>"; };
+		E637961E1C40126A00338DA0 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		E637961F1C40170100338DA0 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		E6C1268B1C3ECA790043F400 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		E6C465C71C3EB37200A78A5F /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		E6E8598B1C3D516400DF5271 /* TappyTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TappyTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +179,7 @@
 			children = (
 				E6E8598E1C3D516400DF5271 /* AppDelegate.swift */,
 				E6E859901C3D516400DF5271 /* ViewController.swift */,
+				E637961F1C40170100338DA0 /* Session.swift */,
 				E6E859921C3D516400DF5271 /* Main.storyboard */,
 				E6E859951C3D516400DF5271 /* Assets.xcassets */,
 				E6E859971C3D516400DF5271 /* LaunchScreen.storyboard */,
@@ -208,10 +212,11 @@
 			isa = PBXGroup;
 			children = (
 				E6E859BC1C3D516500DF5271 /* InterfaceController.swift */,
-				E6C1268B1C3ECA790043F400 /* Time.swift */,
+				E637961E1C40126A00338DA0 /* MyPlayground.playground */,
 				E6C465C71C3EB37200A78A5F /* Timer.swift */,
 				E6E859BE1C3D516500DF5271 /* ExtensionDelegate.swift */,
 				E6E859C01C3D516500DF5271 /* GlanceController.swift */,
+				E6C1268B1C3ECA790043F400 /* Time.swift */,
 				E6E859C21C3D516500DF5271 /* Assets.xcassets */,
 				E6E859C41C3D516500DF5271 /* Info.plist */,
 			);
@@ -431,6 +436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E63796201C40170100338DA0 /* Session.swift in Sources */,
 				E6E859911C3D516400DF5271 /* ViewController.swift in Sources */,
 				E6E8598F1C3D516400DF5271 /* AppDelegate.swift in Sources */,
 			);
@@ -450,7 +456,7 @@
 			files = (
 				E6E859BF1C3D516500DF5271 /* ExtensionDelegate.swift in Sources */,
 				E6E859BD1C3D516500DF5271 /* InterfaceController.swift in Sources */,
-				E6C1268C1C3ECA790043F400 /* Time.swift in Sources */,
+				E63796211C40174000338DA0 /* Session.swift in Sources */,
 				E6E859C11C3D516500DF5271 /* GlanceController.swift in Sources */,
 				E6C465C81C3EB37200A78A5F /* Timer.swift in Sources */,
 			);

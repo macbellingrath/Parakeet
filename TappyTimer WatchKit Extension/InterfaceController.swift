@@ -9,15 +9,16 @@
 import WatchKit
 import Foundation
 
-
-
-
 class InterfaceController: WKInterfaceController, HapticPlayable {
 
     var targetTimer: NSTimer?
-    var timerManager: AIRTimer?
-    var duration: NSTimeInterval = 20
-    
+    var currentSegment: Segment? {
+        didSet {
+            let repsLeft = String(s.intervals.filter { $0.type == .Work }.count)
+            intervalTypeLabel.setText(currentSegment?.type.rawValue)
+            numberOfIntervalsLabel.setText(repsLeft)
+        }
+    }
     var timerRunning = false {
        
         didSet {
@@ -34,22 +35,24 @@ class InterfaceController: WKInterfaceController, HapticPlayable {
     
     @IBOutlet var watchTimer: WKInterfaceTimer!
     @IBOutlet weak var startButton: WKInterfaceButton!
+    @IBOutlet var numberOfIntervalsLabel: WKInterfaceLabel!
+    @IBOutlet var intervalTypeLabel: WKInterfaceLabel!
     @IBAction func startButtonPressed() {
+        
+        guard let seg = currentSegment else { return }
         
         if !timerRunning {
         
-        watchTimer?.configure(withTimeInterval: duration)
+        watchTimer?.configure(withTimeInterval: seg.interval)
        
         watchTimer.start()
-//        timerManager = AIRTimer.after(<#T##interval: NSTimeInterval##NSTimeInterval#>, handler: <#T##TimerHandler##TimerHandler##(AIRTimer) -> Void#>)
         
         startTargetTimer()
         
         playHaptic(.Start)
         
         } else if timerRunning {
-            
-            duration = targetTimer?.timeInterval ?? duration
+        
             
             watchTimer.stop()
             
@@ -65,22 +68,45 @@ class InterfaceController: WKInterfaceController, HapticPlayable {
         watchTimer?.stop()
         playHaptic(.DirectionDown)
         sender.invalidate()
+
+        guard !s.intervals.isEmpty else {timerRunning = false; return }
+        s.intervals.removeFirst()
+        currentSegment = s.intervals.first
+        watchTimer.configure(withTimeInterval: currentSegment?.interval ?? 0)
+        startTargetTimer()
+        watchTimer.start()
         
-        timerRunning = false
+        
+       
         
     }
     
     func startTargetTimer() {
-        targetTimer = NSTimer.scheduledTimerWithTimeInterval(duration, target: self, selector: Selector("timerDone:"), userInfo: nil, repeats: false)
+        guard let seg = currentSegment else { return }
+        targetTimer = NSTimer.scheduledTimerWithTimeInterval(seg.interval, target: self, selector: Selector("timerDone:"), userInfo: nil, repeats: false)
     }
     
-    func setSession() {
-        let session = Session(numIntervals: 8, rest: 10, work: 20)
-    }
+ 
+    var s = Session(rest: 10, work: 20, number: 8)
     
     
     override func didAppear() {
         super.didAppear()
+    
+        currentSegment = s.intervals.first
+        
+        let reps = String(s.intervals.filter { $0.type == .Work }.count)
+        
+        numberOfIntervalsLabel.setText(reps)
+        
+        if let seg = currentSegment {
+        watchTimer.configure(withTimeInterval: seg.interval)
+        switch seg.type {
+            case .Rest: intervalTypeLabel.setText(seg.type.rawValue)
+            case .Work: intervalTypeLabel.setText(seg.type.rawValue)
+            
+            }
+        }
     
     }
 }
@@ -89,7 +115,7 @@ extension WKInterfaceTimer: HapticPlayable {
     
     func configure(withTimeInterval time: NSTimeInterval) {
       
-        let futureDate = NSDate(timeIntervalSinceNow: (time + 1.0))
+        let futureDate = NSDate(timeIntervalSinceNow: (time) + 1.0)
         self.setDate(futureDate)
 
     }

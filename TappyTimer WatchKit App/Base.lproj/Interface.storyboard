@@ -11,8 +11,21 @@
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="TappyTimer_WatchKit_App" customModuleProvider="target">
                     <items>
                         <timer width="115" height="30.5" alignment="center" textAlignment="center" id="xrZ-AJ-miW"/>
-                        <button width="1" alignment="left" title="Start" id="zod-qR-fBH">
-                            <color key="titleColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <group width="1" height="38.5" alignment="center" verticalAlignment="center" layout="vertical" spacing="2" id="MTI-ef-QPK">
+                            <items>
+                                <label alignment="center" text="8" textAlignment="center" id="qGi-fE-bUW">
+                                    <color key="textColor" red="0.2470588235" green="0.59607843140000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                                </label>
+                                <label alignment="center" text="Rest" textAlignment="center" id="5OF-Wv-ATa">
+                                    <color key="textColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                                </label>
+                            </items>
+                        </group>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Start" id="zod-qR-fBH">
+                            <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="startButtonPressed" destination="AgC-eL-Hgc" id="wyU-nk-yuX"/>
                             </connections>
@@ -24,12 +37,14 @@
                         </items>
                     </menu>
                     <connections>
+                        <outlet property="intervalTypeLabel" destination="5OF-Wv-ATa" id="g8o-iw-6Vw"/>
+                        <outlet property="numberOfIntervalsLabel" destination="qGi-fE-bUW" id="pBe-mx-NGc"/>
                         <outlet property="startButton" destination="zod-qR-fBH" id="kIr-pO-cSQ"/>
-                        <outlet property="timer" destination="xrZ-AJ-miW" id="deQ-P6-Utg"/>
+                        <outlet property="watchTimer" destination="xrZ-AJ-miW" id="cdo-Il-CmI"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="374" y="238"/>
+            <point key="canvasLocation" x="361" y="352"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="rjY-Ar-IMT">
@@ -42,7 +57,7 @@
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
                 </glanceController>
             </objects>
-            <point key="canvasLocation" x="164" y="514"/>
+            <point key="canvasLocation" x="496" y="899"/>
         </scene>
     </scenes>
 </document>
