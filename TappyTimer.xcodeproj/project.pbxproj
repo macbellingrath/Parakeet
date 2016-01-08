@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7278E40F0350C560FE1B100 /* Pods_TappyTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1164D49ED64CE4B9B3F8E7FF /* Pods_TappyTimer.framework */; };
 		E6C1268C1C3ECA790043F400 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C1268B1C3ECA790043F400 /* Time.swift */; };
 		E6C465C81C3EB37200A78A5F /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C465C71C3EB37200A78A5F /* Timer.swift */; };
 		E6E8598F1C3D516400DF5271 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E8598E1C3D516400DF5271 /* AppDelegate.swift */; };
@@ -75,6 +76,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1164D49ED64CE4B9B3F8E7FF /* Pods_TappyTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TappyTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		714DD45A4AF3A010B1ABD4A6 /* Pods-TappyTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TappyTimer.release.xcconfig"; path = "Pods/Target Support Files/Pods-TappyTimer/Pods-TappyTimer.release.xcconfig"; sourceTree = "<group>"; };
+		A893ADA8E18EFA0ABF13585B /* Pods-TappyTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TappyTimer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TappyTimer/Pods-TappyTimer.debug.xcconfig"; sourceTree = "<group>"; };
 		E6C1268B1C3ECA790043F400 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		E6C465C71C3EB37200A78A5F /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		E6E8598B1C3D516400DF5271 /* TappyTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TappyTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7278E40F0350C560FE1B100 /* Pods_TappyTimer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +130,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BBCBE5992B2ABF5C456C466D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1164D49ED64CE4B9B3F8E7FF /* Pods_TappyTimer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E0715BB528B31871EA95040A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A893ADA8E18EFA0ABF13585B /* Pods-TappyTimer.debug.xcconfig */,
+				714DD45A4AF3A010B1ABD4A6 /* Pods-TappyTimer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E6E859821C3D516400DF5271 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +155,8 @@
 				E6E859AC1C3D516500DF5271 /* TappyTimer WatchKit App */,
 				E6E859BB1C3D516500DF5271 /* TappyTimer WatchKit Extension */,
 				E6E8598C1C3D516400DF5271 /* Products */,
+				E0715BB528B31871EA95040A /* Pods */,
+				BBCBE5992B2ABF5C456C466D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,10 +225,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6E859CF1C3D516500DF5271 /* Build configuration list for PBXNativeTarget "TappyTimer" */;
 			buildPhases = (
+				6EDAC373E7E4BF286BE86429 /* Check Pods Manifest.lock */,
 				E6E859871C3D516400DF5271 /* Sources */,
 				E6E859881C3D516400DF5271 /* Frameworks */,
 				E6E859891C3D516400DF5271 /* Resources */,
 				E6E859CE1C3D516500DF5271 /* Embed Watch Content */,
+				92F22540300662C326C60E40 /* Embed Pods Frameworks */,
+				9380EA33495D790F0E252EF6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -350,6 +377,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6EDAC373E7E4BF286BE86429 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		92F22540300662C326C60E40 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TappyTimer/Pods-TappyTimer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9380EA33495D790F0E252EF6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TappyTimer/Pods-TappyTimer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E6E859871C3D516400DF5271 /* Sources */ = {
@@ -572,6 +647,7 @@
 		};
 		E6E859D01C3D516500DF5271 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A893ADA8E18EFA0ABF13585B /* Pods-TappyTimer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TappyTimer/Info.plist;
@@ -583,6 +659,7 @@
 		};
 		E6E859D11C3D516500DF5271 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 714DD45A4AF3A010B1ABD4A6 /* Pods-TappyTimer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TappyTimer/Info.plist;

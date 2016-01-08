@@ -10,14 +10,7 @@ import WatchKit
 import Foundation
 
 
-struct Time {
-    //Rest
-    var restTime: NSTimeInterval
-    //Work
-    var intervalLength: NSTimeInterval
-    //Intervals
-    var numberOfIntervals: Int
-}
+
 
 class InterfaceController: WKInterfaceController, HapticPlayable {
 
@@ -48,7 +41,7 @@ class InterfaceController: WKInterfaceController, HapticPlayable {
         watchTimer?.configure(withTimeInterval: duration)
        
         watchTimer.start()
-        timerManager = AIRTimer.after(<#T##interval: NSTimeInterval##NSTimeInterval#>, handler: <#T##TimerHandler##TimerHandler##(AIRTimer) -> Void#>)
+//        timerManager = AIRTimer.after(<#T##interval: NSTimeInterval##NSTimeInterval#>, handler: <#T##TimerHandler##TimerHandler##(AIRTimer) -> Void#>)
         
         startTargetTimer()
         
@@ -81,10 +74,14 @@ class InterfaceController: WKInterfaceController, HapticPlayable {
         targetTimer = NSTimer.scheduledTimerWithTimeInterval(duration, target: self, selector: Selector("timerDone:"), userInfo: nil, repeats: false)
     }
     
+    func setSession() {
+        let session = Session(numIntervals: 8, rest: 10, work: 20)
+    }
+    
+    
     override func didAppear() {
         super.didAppear()
     
-
     }
 }
 

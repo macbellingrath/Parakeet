@@ -45,7 +45,6 @@ struct Time {
     
     //total
     var sessionTotalTime: NSTimeInterval {
-        let first = intervals.first?.segmentTime ?? 0.0
         return intervals.reduce(0.0){$0 + $1.segmentTime}
     }
 }
@@ -58,3 +57,7 @@ let interval = (rest: IntervalType.Rest(10), work: IntervalType.Work(20))
 let t = Time(numIntervals: 8, rest: 10, work: 20)
 t.intervals.count
 t.sessionTotalTime
+
+
+
+
